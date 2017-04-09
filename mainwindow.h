@@ -33,9 +33,9 @@ private:
 
     QSerialPort Port;                               //串口对象
     QTime Time;                                     //主要计时器
+   // QTime StdTime(0,0,0,0);
     QTimer Timer;                                   //主要计时器
     QTimer *ReNew=new QTimer(this);                 //定时刷新计时器
-    int timecount;                                  //发车前倒计时
 
     void Port_Scan();                               //初始化串口
     void connect_init();                            //初始化各种连接
