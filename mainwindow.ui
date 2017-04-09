@@ -334,8 +334,19 @@
         <x>163</x>
         <y>35</y>
         <width>41</width>
-        <height>27</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>0</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_11">
@@ -391,6 +402,24 @@
       </property>
       <property name="text">
        <string>比赛开始</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="AddButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>221</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>添加队伍</string>
       </property>
      </widget>
     </widget>

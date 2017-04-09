@@ -27,7 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     chuankou.cpp \
-    time.cpp
+    time.cpp \
+    match.cpp
 
 HEADERS  += mainwindow.h
 

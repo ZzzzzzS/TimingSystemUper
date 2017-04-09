@@ -27,18 +27,23 @@ private slots:
     void Port_Init();                               //打开串口时初始化
     void Start_Slot();                              //开始比赛的槽
     void Time_Out();                                //定时刷新
+    void Punish_Slot();                             //罚时按钮槽
+    void StopFail_Slot();                           //停车失败槽
+    void AntiTouch_Slot();                          //防误触槽
 
 private:
     Ui::MainWindow *ui;
 
     QSerialPort Port;                               //串口对象
     QTime Time;                                     //主要计时器
-   // QTime StdTime(0,0,0,0);
-    QTimer Timer;                                   //主要计时器
     QTimer *ReNew=new QTimer(this);                 //定时刷新计时器
+    int PunishTimes;                                //罚时次数
 
     void Port_Scan();                               //初始化串口
     void connect_init();                            //初始化各种连接
+    void ReadyToRun();                              //准备比赛
+    void ReadyToReady();                            //准备时间
+    void FinshMatch();                              //完成比赛
 
 };
 
