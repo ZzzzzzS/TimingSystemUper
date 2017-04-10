@@ -246,10 +246,10 @@
      <widget class="QPushButton" name="ChuanKouButton">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>150</y>
-        <width>97</width>
-        <height>57</height>
+        <x>126</x>
+        <y>160</y>
+        <width>101</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
@@ -289,7 +289,7 @@
        </font>
       </property>
       <property name="text">
-       <string>请确认分数</string>
+       <string>提交成绩</string>
       </property>
      </widget>
      <widget class="QPushButton" name="ChuJieButton">
@@ -386,41 +386,59 @@
      <property name="title">
       <string>设置</string>
      </property>
-     <widget class="QPushButton" name="PowerButton">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>140</y>
+        <y>60</y>
         <width>221</width>
-        <height>36</height>
+        <height>117</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>比赛开始</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="AddButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>221</width>
-        <height>36</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>添加队伍</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QPushButton" name="AddButton">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>添加队伍</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PowerButton">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>比赛开始</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="AboutButton">
+           <property name="text">
+            <string>关于此软件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="AboutQtButton">
+           <property name="text">
+            <string>关于Qt</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

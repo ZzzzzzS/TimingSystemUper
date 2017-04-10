@@ -28,8 +28,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     chuankou.cpp \
     time.cpp \
-    match.cpp
+    match.cpp \
+    confirmwindow.cpp \
+    data.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    confirmwindow.h \
+    data.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    confirmwindow.ui

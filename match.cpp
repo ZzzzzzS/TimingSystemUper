@@ -11,11 +11,19 @@ void MainWindow::ReadyToRun()
 
 void MainWindow::FinshMatch()
 {
-    ui->StartButton->setText("准备!");
-    ui->ChuJieButton->setEnabled(false);
-    ui->StopFailButton->setEnabled(false);
-    ui->StopFailButton->setText("停车失败");
-    PunishTimes=0;
+    NowMatch.MatchTime=this->Time;
+    bool ok=true;
+    NowMatch.Chujie=ui->ChujieLine->text().toInt(&ok,10);
+
+    if(ui->StopFailButton->text()=="停车失败")
+        NowMatch.StopCar=true;
+    else if(ui->StopFailButton->text()=="停车成功")
+        NowMatch.StopCar=false;
+    NowMatch.FinalTime=this->Time;
+    NowMatch.FinalTime=NowMatch.FinalTime.addSecs(NowMatch.Chujie);
+    if(NowMatch.StopCar==false)
+        NowMatch.FinalTime=NowMatch.FinalTime.addSecs(1);
+
     ui->ChujieLine->setText(QString::number(this->PunishTimes));
 }
 

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>confirmWindow</class>
+ <widget class="QDialog" name="confirmWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>324</width>
+    <height>576</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Adobe Myungjo Std M</family>
+    <pointsize>36</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="OkButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>301</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>36</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>确认成绩</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>301</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>队伍信息</string>
+   </property>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>111</y>
+      <width>47</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>编号:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="NumberLine">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>110</y>
+      <width>41</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>30</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>73</y>
+      <width>47</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>类别:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="TypeBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>70</y>
+      <width>221</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>双车追逐组</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>电磁竞速组</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>电磁节能组</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>四轮摄像头组</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>直立摄像头组</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>信标组</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>32</y>
+      <width>47</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>队名:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="TeamNameLine">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>221</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>测试的组</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>301</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>成绩信息</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>31</y>
+      <width>281</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>实际时间:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="TimeLine"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>出界罚时:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="ChujieLine"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>停车成功:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="StopCarBox">
+         <item>
+          <property name="text">
+           <string>是</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>否,罚时1秒</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>最终时间:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="FinalTimeLine"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

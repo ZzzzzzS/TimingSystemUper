@@ -9,6 +9,8 @@
 #include <QTimer>
 #include <QTimerEvent>
 #include <QMessageBox>
+#include <QDebug>
+#include "data.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +32,7 @@ private slots:
     void Punish_Slot();                             //罚时按钮槽
     void StopFail_Slot();                           //停车失败槽
     void AntiTouch_Slot();                          //防误触槽
+    void Push_Slot();                               //提交比赛信息
 
 private:
     Ui::MainWindow *ui;
