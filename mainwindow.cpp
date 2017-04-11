@@ -20,6 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StopFailButton->setEnabled(false);
     this->PunishTimes=0;
     ui->ChujieLine->setText("0");
+
+    this->setMaximumSize(1440,810);
+    this->setMinimumSize(1440,810);
 }
 
 MainWindow::~MainWindow()

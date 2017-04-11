@@ -10,7 +10,7 @@ confirmWindow::confirmWindow(QWidget *parent) :
     ui->NumberLine->setText(QString::number(NowMatch.Number));
     ui->TimeLine->setText(NowMatch.MatchTime.toString("mm:ss:zzz"));
     ui->FinalTimeLine->setText(NowMatch.FinalTime.toString("mm:ss:zzz"));
-    ui->ChujieLine->setText(QString::number(NowMatch.Chujie));
+    ui->chujiebox->setValue(NowMatch.Chujie);
     if(NowMatch.StopCar==true)
         ui->StopCarBox->setCurrentIndex(0);
     else
@@ -42,8 +42,7 @@ void confirmWindow::SaveFileSlot()
         NowMatch.StopCar=true;
     else if(ui->StopCarBox->currentIndex()==1)
         NowMatch.StopCar=false;
-    bool ok=true;
-    NowMatch.Chujie=ui->ChujieLine->text().toInt(&ok,10);
+    NowMatch.Chujie=ui->chujiebox->value();
     NowMatch.isMatched=true;
     NowMatch.save();
     QMessageBox::information(this,"提交成绩","成功!   ",QMessageBox::Close);
@@ -52,13 +51,8 @@ void confirmWindow::SaveFileSlot()
 
 void confirmWindow::Reload()
 {
-    bool ok=true;
     QTime temp=QTime::fromString(ui->TimeLine->text(),"mm:ss:zzz");
-    if(ui->ChujieLine->text()=="")
-    {
-        ui->ChujieLine->setText("0");
-    }
-    temp=temp.addSecs(ui->ChujieLine->text().toInt(&ok,10));
+    temp=temp.addSecs(ui->chujiebox->value());
     if(ui->StopCarBox->currentIndex()==1)
         temp=temp.addSecs(1);
     ui->FinalTimeLine->setText(temp.toString("mm:ss:zzz"));

@@ -38,7 +38,7 @@ void MainWindow::ReadyToReady()
 
     ui->NameLine->setText(NowMatch.TeamName);
     ui->NumberLine->setText(QString::number(NowMatch.Number));
-    ui->TypeName->setText(NowMatch.Type);
+    ui->TypeBox->setCurrentText(NowMatch.Type);
 }
 
 void MainWindow::StopFail_Slot()
