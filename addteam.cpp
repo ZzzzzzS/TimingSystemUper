@@ -22,7 +22,7 @@ AddTeam::~AddTeam()
 
 void AddTeam::NextSlot()
 {
-    if(ui->NumberBox->value()==1)
+    if(ui->NumberBox->value()>=1)
         ui->LastButton->setEnabled(true);
 
     bool ok=true;
@@ -39,7 +39,7 @@ void AddTeam::NextSlot()
 
 void AddTeam::LastSlot()
 {
-    if(ui->NumberBox->value()==2)
+    if(ui->NumberBox->value()<=2)
         ui->LastButton->setEnabled(false);
 
     ui->NumberBox->setValue(ui->NumberBox->value()-1);
