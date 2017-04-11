@@ -15,11 +15,51 @@ confirmWindow::confirmWindow(QWidget *parent) :
         ui->StopCarBox->setCurrentIndex(0);
     else
         ui->StopCarBox->setCurrentIndex(1);
-    ui->TypeBox->setCurrentText(NowMatch.Type);
+    ui->TypeLine->setText(NowMatch.Type);
+    QObject::connect(ui->OkButton,SIGNAL(clicked(bool)),this,SLOT(SaveFileSlot()));
+    ReNew->start(100);//100ms刷新一次
+    QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(Reload()));
+
+    this->setMaximumSize(324,576);
+    this->setMinimumSize(324,576);
 
 }
 
 confirmWindow::~confirmWindow()
 {
+    delete ReNew;
     delete ui;
+}
+
+void confirmWindow::SaveFileSlot()
+{
+    QString temp;
+    temp=ui->TimeLine->text();
+    NowMatch.MatchTime=QTime::fromString(temp,"mm:ss:zzz");
+    temp=ui->FinalTimeLine->text();
+    NowMatch.FinalTime=QTime::fromString(temp,"mm:ss:zzz");
+    if(ui->StopCarBox->currentIndex()==0)
+        NowMatch.StopCar=true;
+    else if(ui->StopCarBox->currentIndex()==1)
+        NowMatch.StopCar=false;
+    bool ok=true;
+    NowMatch.Chujie=ui->ChujieLine->text().toInt(&ok,10);
+    NowMatch.isMatched=true;
+    NowMatch.save();
+    QMessageBox::information(this,"提交成绩","成功!   ",QMessageBox::Close);
+    this->close();
+}
+
+void confirmWindow::Reload()
+{
+    bool ok=true;
+    QTime temp=QTime::fromString(ui->TimeLine->text(),"mm:ss:zzz");
+    if(ui->ChujieLine->text()=="")
+    {
+        ui->ChujieLine->setText("0");
+    }
+    temp=temp.addSecs(ui->ChujieLine->text().toInt(&ok,10));
+    if(ui->StopCarBox->currentIndex()==1)
+        temp=temp.addSecs(1);
+    ui->FinalTimeLine->setText(temp.toString("mm:ss:zzz"));
 }

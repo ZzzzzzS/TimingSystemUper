@@ -33,6 +33,7 @@ private slots:
     void StopFail_Slot();                           //停车失败槽
     void AntiTouch_Slot();                          //防误触槽
     void Push_Slot();                               //提交比赛信息
+    void AddTeam_Slot();                            //添加队伍
 
 private:
     Ui::MainWindow *ui;

@@ -30,11 +30,14 @@ SOURCES += main.cpp\
     time.cpp \
     match.cpp \
     confirmwindow.cpp \
-    data.cpp
+    data.cpp \
+    addteam.cpp
 
 HEADERS  += mainwindow.h \
     confirmwindow.h \
-    data.h
+    data.h \
+    addteam.h
 
 FORMS    += mainwindow.ui \
-    confirmwindow.ui
+    confirmwindow.ui \
+    addteam.ui

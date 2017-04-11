@@ -53,6 +53,7 @@ void MainWindow::Start_Slot()
 
         ui->StartButton->setText("重跑!");
         ui->StartButton->setEnabled(false);//放误触发
+        ui->ConfirmButton->setEnabled(true);
 
         this->ReNew->start(2000);
         QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(AntiTouch_Slot()));

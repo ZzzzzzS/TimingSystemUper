@@ -7,6 +7,7 @@ void MainWindow::ReadyToRun()
     ui->ChuJieButton->setEnabled(true);
     PunishTimes=0;
     ui->ChujieLine->setText(QString::number(this->PunishTimes));
+    ui->ConfirmButton->setEnabled(false);
 }
 
 void MainWindow::FinshMatch()
@@ -33,6 +34,11 @@ void MainWindow::ReadyToReady()
     ui->StopFailButton->setEnabled(false);
     PunishTimes=0;
     ui->ChujieLine->setText(QString::number(this->PunishTimes));
+    ui->ConfirmButton->setEnabled(false);
+
+    ui->NameLine->setText(NowMatch.TeamName);
+    ui->NumberLine->setText(QString::number(NowMatch.Number));
+    ui->TypeName->setText(NowMatch.Type);
 }
 
 void MainWindow::StopFail_Slot()

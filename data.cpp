@@ -3,7 +3,6 @@
 
 TeamInformation::TeamInformation()//初始化清零
 {
-    //QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
     this->Chujie=0;
     this->FinalTime=QTime(0,0,0,0);
     this->isMatched=false;
@@ -17,7 +16,6 @@ TeamInformation::TeamInformation()//初始化清零
 void TeamInformation::save()
 {
     QSettings Information("MatchInformation.ini",QSettings::IniFormat);
-    //Information.setIniCodec(QTextCodec::codecForName("GB2312")); //在此添加设置，即可读写ini文件中的中文
 
     Information.beginGroup(QString::number(this->Number));
     Information.setValue("TeamName",QVariant(this->TeamName));

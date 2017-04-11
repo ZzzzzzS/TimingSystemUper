@@ -81,6 +81,9 @@
     <property name="text">
      <string>30</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
@@ -94,46 +97,6 @@
     <property name="text">
      <string>类别:</string>
     </property>
-   </widget>
-   <widget class="QComboBox" name="TypeBox">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>70</y>
-      <width>221</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>双车追逐组</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>电磁竞速组</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>电磁节能组</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>四轮摄像头组</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>直立摄像头组</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>信标组</string>
-     </property>
-    </item>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -160,6 +123,25 @@
     <property name="text">
      <string>测试的组</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="TypeLine">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>70</y>
+      <width>221</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
@@ -180,7 +162,7 @@
    <property name="title">
     <string>成绩信息</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -253,7 +235,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="FinalTimeLine"/>
+        <widget class="QLineEdit" name="FinalTimeLine">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>

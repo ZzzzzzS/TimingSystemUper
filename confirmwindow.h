@@ -2,6 +2,8 @@
 #define CONFIRMWINDOW_H
 
 #include <QDialog>
+#include <QMessageBox>
+#include <QTimer>
 #include "data.h"
 
 namespace Ui {
@@ -16,10 +18,12 @@ public:
     explicit confirmWindow(QWidget *parent = 0);
     ~confirmWindow();
 private slots:
-    //bool SaveFileSlot();//储存比赛信息
+    void SaveFileSlot();//储存比赛信息
+    void Reload();
 
 private:
     Ui::confirmWindow *ui;
+    QTimer *ReNew=new QTimer;
 };
 
 #if _MSC_VER >= 1600                                //防止中文乱码
