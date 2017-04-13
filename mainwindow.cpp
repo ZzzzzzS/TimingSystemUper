@@ -4,6 +4,8 @@
 #include "ui_confirmwindow.h"
 #include "addteam.h"
 #include "ui_addteam.h"
+#include "aboutwindow.h"
+#include "ui_aboutwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -50,6 +52,7 @@ void MainWindow::connect_init()
     QObject::connect(ui->AddButton,SIGNAL(clicked(bool)),this,SLOT(AddTeam_Slot()));
     QObject::connect(ui->LastTeamButton,SIGNAL(clicked(bool)),this,SLOT(LatTeam_Slot()));
     QObject::connect(ui->NextTeamButton,SIGNAL(clicked(bool)),this,SLOT(NextTeam_Slot()));
+    QObject::connect(ui->AboutButton,SIGNAL(clicked(bool)),this,SLOT(AboutSlot()));
 }
 
 void MainWindow::Push_Slot()
@@ -105,4 +108,10 @@ void MainWindow::NextTeam_Slot()
         QMessageBox::information(this,"718 lab","然而并没有更多队伍 (￣_￣|||)",QMessageBox::Ok);
     }
     this->ReadyToReady();
+}
+
+void MainWindow::AboutSlot()
+{
+    AboutWindow About;
+    About.exec();
 }

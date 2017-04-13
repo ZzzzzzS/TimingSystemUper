@@ -33,13 +33,16 @@ SOURCES += main.cpp\
     confirmwindow.cpp \
     data.cpp \
     addteam.cpp \
-    sql.cpp
+    sql.cpp \
+    aboutwindow.cpp
 
 HEADERS  += mainwindow.h \
     confirmwindow.h \
     data.h \
-    addteam.h
+    addteam.h \
+    aboutwindow.h
 
 FORMS    += mainwindow.ui \
     confirmwindow.ui \
-    addteam.ui
+    addteam.ui \
+    aboutwindow.ui

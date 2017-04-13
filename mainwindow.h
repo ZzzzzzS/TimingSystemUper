@@ -37,6 +37,7 @@ private slots:
     void AddTeam_Slot();                            //添加队伍
     void NextTeam_Slot();                           //下一队
     void LatTeam_Slot();                            //上一队
+    void AboutSlot();                               //关于槽
 
 private:
     Ui::MainWindow *ui;
