@@ -148,14 +148,13 @@ void MainWindow::Receive_Slot()
         {
             if(data[i]==3&&data[i+1]==252)
             {
-                //TODO 时间变化
                 if(ui->StartButton->text()=="发车!")
                 {
                     this->Start_Slot();//等效成按下按钮
                 }
                 else if(ui->StartButton->text()=="完成!")
                 {
-                    if(this->Time<QTime(0,0,5,0))
+                    if(this->Time<QTime(0,0,5,0))//防止重复触发
                     {
                         return;
                     }

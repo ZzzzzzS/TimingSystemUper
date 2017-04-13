@@ -10,6 +10,7 @@
 #include <QTimerEvent>
 #include <QMessageBox>
 #include <QDebug>
+#include <QStandardItemModel>
 #include "data.h"
 
 namespace Ui {
@@ -34,6 +35,8 @@ private slots:
     void AntiTouch_Slot();                          //防误触槽
     void Push_Slot();                               //提交比赛信息
     void AddTeam_Slot();                            //添加队伍
+    void NextTeam_Slot();                           //下一队
+    void LatTeam_Slot();                            //上一队
 
 private:
     Ui::MainWindow *ui;
@@ -41,6 +44,7 @@ private:
     QSerialPort Port;                               //串口对象
     QTime Time;                                     //主要计时器
     QTimer *ReNew=new QTimer(this);                 //定时刷新计时器
+    QStandardItemModel *Model=new QStandardItemModel;
     int PunishTimes;                                //罚时次数
 
     void Port_Scan();                               //初始化串口
@@ -48,6 +52,7 @@ private:
     void ReadyToRun();                              //准备比赛
     void ReadyToReady();                            //准备时间
     void FinshMatch();                              //完成比赛
+    void TableInit();                               //初始化表格
 
 };
 

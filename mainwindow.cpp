@@ -12,9 +12,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    TableInit();
     connect_init();//初始化连接
     Port_Scan();//端口扫描
-    FinshMatch();//让系统处于上一场比赛结束状态，相当于初始化
+    NowMatch.load(1);
+    if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
+    {
+        QMessageBox::information(this,"请添加队伍信息","你可能用了假的数据库 ⊙﹏⊙∥",QMessageBox::Ok);
+        AddTeam NewTeam;
+        NewTeam.exec();
+    }
+    ReadyToReady();
     ui->ConfirmButton->setEnabled(false);
     ui->ChuJieButton->setEnabled(false);
     ui->StopFailButton->setEnabled(false);
@@ -40,6 +48,8 @@ void MainWindow::connect_init()
     QObject::connect(ui->AboutQtButton,SIGNAL(clicked()),qApp,SLOT(aboutQt()));
     QObject::connect(ui->ConfirmButton,SIGNAL(clicked()),this,SLOT(Push_Slot()));
     QObject::connect(ui->AddButton,SIGNAL(clicked(bool)),this,SLOT(AddTeam_Slot()));
+    QObject::connect(ui->LastTeamButton,SIGNAL(clicked(bool)),this,SLOT(LatTeam_Slot()));
+    QObject::connect(ui->NextTeamButton,SIGNAL(clicked(bool)),this,SLOT(NextTeam_Slot()));
 }
 
 void MainWindow::Push_Slot()
@@ -53,4 +63,46 @@ void MainWindow::AddTeam_Slot()
 {
     AddTeam NewTeam;
     NewTeam.exec();
+    bool ok=true;
+    NowMatch.load(ui->NumberLine->text().toInt(&ok,10));
+    ReadyToReady();
+}
+
+void MainWindow::TableInit()
+{
+    this->Model->setColumnCount(7);
+    this->Model->setHeaderData(0,Qt::Horizontal,QVariant("序号"));
+    this->Model->setHeaderData(1,Qt::Horizontal,QVariant("队名"));
+    this->Model->setHeaderData(2,Qt::Horizontal,QVariant("组别"));
+    this->Model->setHeaderData(3,Qt::Horizontal,QVariant("实际时间"));
+    this->Model->setHeaderData(4,Qt::Horizontal,QVariant("出界次数"));
+    this->Model->setHeaderData(5,Qt::Horizontal,QVariant("停车成功"));
+    this->Model->setHeaderData(6,Qt::Horizontal,QVariant("最终成绩"));
+    ui->tableView->setModel(this->Model);
+    ui->tableView->resizeColumnsToContents();//自动调节列
+    ui->tableView->resizeRowsToContents();//自动调节行
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+}
+
+void MainWindow::LatTeam_Slot()
+{
+    if(NowMatch.Number<=1)
+    {
+        QMessageBox::information(this,"718 lab","前面已经没有队伍啦! ╮(╯-╰)╭",QMessageBox::Ok);
+        return;
+    }
+    NowMatch.load(NowMatch.Number-1);
+    this->ReadyToReady();
+}
+
+void MainWindow::NextTeam_Slot()
+{
+    NowMatch.load(NowMatch.Number+1);
+    if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
+    {
+        //可能存在bug
+        NowMatch.load(NowMatch.Number-1);
+        QMessageBox::information(this,"718 lab","然而并没有更多队伍 (￣_￣|||)",QMessageBox::Ok);
+    }
+    this->ReadyToReady();
 }

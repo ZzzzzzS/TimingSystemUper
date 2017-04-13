@@ -113,12 +113,6 @@ void MainWindow::Time_Out()
     }
 }
 
-void MainWindow::Punish_Slot()
-{
-    PunishTimes++;
-    ui->ChujieLine->setText(QString::number(this->PunishTimes));
-}
-
 void MainWindow::AntiTouch_Slot()
 {
     ui->StartButton->setEnabled(true);

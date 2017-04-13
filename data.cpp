@@ -33,6 +33,7 @@ void TeamInformation::load(int Number)
     QSettings Read("MatchInformation.ini",QSettings::IniFormat);
 
     Read.beginGroup(QString::number(Number));
+    this->Number=Number;
     this->TeamName=Read.value("TeamName").toString();
     this->Type=Read.value("MatchType").toString();
     this->MatchTime=QTime::fromString(Read.value("Time").toString(),"mm:ss:zzz");

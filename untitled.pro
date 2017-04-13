@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += serialport
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -31,7 +32,8 @@ SOURCES += main.cpp\
     match.cpp \
     confirmwindow.cpp \
     data.cpp \
-    addteam.cpp
+    addteam.cpp \
+    sql.cpp
 
 HEADERS  += mainwindow.h \
     confirmwindow.h \

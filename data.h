@@ -3,6 +3,7 @@
 //专门定义储存比赛信息的类型
 #include <QString>
 #include <QTime>
+#include <QtSql>
 
 class TeamInformation
 {
@@ -20,6 +21,17 @@ public:
     void reset();//清零
     void load(int Number);//从磁盘装载第几号选手信息
     void save();//储存当前选手信息
+
+
+
+
+
+    //sql测试部分
+   QSqlDatabase db;
+   void SQLOpen();
+
+
+
 };
 
 extern TeamInformation NowMatch;//声明一个类储存当前选手信息
