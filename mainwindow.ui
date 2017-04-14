@@ -266,7 +266,7 @@
        <x>10</x>
        <y>30</y>
        <width>241</width>
-       <height>211</height>
+       <height>231</height>
       </rect>
      </property>
      <property name="font">
@@ -277,107 +277,163 @@
      <property name="title">
       <string>比赛</string>
      </property>
-     <widget class="QPushButton" name="ConfirmButton">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>150</y>
+        <y>30</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QPushButton" name="ChuJieButton">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>车模出界</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="StopFailButton">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>停车失败</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>141</y>
         <width>221</width>
-        <height>51</height>
+        <height>82</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>提交成绩</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="PauseButton">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>暂停</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ResetButton">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>复位</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="ConfirmButton">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>提交成绩</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
-     <widget class="QPushButton" name="ChuJieButton">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>12</x>
-        <y>31</y>
-        <width>141</width>
-        <height>36</height>
+        <x>150</x>
+        <y>30</y>
+        <width>81</width>
+        <height>81</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>车模出界</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="StopFailButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>80</y>
-        <width>141</width>
-        <height>36</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>停车失败</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="ChujieLine">
-      <property name="geometry">
-       <rect>
-        <x>163</x>
-        <y>35</y>
-        <width>41</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>31</y>
-        <width>21</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>次</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLineEdit" name="ChujieLine">
+           <property name="font">
+            <font>
+             <pointsize>22</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_11">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>次</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="StopLine">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>失败</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QGroupBox" name="groupBox_5">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>239</y>
+       <y>259</y>
        <width>241</width>
-       <height>181</height>
+       <height>161</height>
       </rect>
      </property>
      <property name="font">
@@ -393,7 +449,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>20</y>
         <width>221</width>
         <height>131</height>
        </rect>
@@ -581,7 +637,7 @@
      <rect>
       <x>801</x>
       <y>20</y>
-      <width>631</width>
+      <width>621</width>
       <height>64</height>
      </rect>
     </property>
@@ -659,8 +715,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>802</x>
-      <y>92</y>
+      <x>800</x>
+      <y>90</y>
       <width>108</width>
       <height>62</height>
      </rect>
@@ -677,7 +733,7 @@
      <rect>
       <x>920</x>
       <y>90</y>
-      <width>321</width>
+      <width>311</width>
       <height>61</height>
      </rect>
     </property>
@@ -731,7 +787,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>1250</x>
+      <x>1240</x>
       <y>90</y>
       <width>108</width>
       <height>62</height>
@@ -747,8 +803,8 @@
    <widget class="QLineEdit" name="NumberLine">
     <property name="geometry">
      <rect>
-      <x>1359</x>
-      <y>93</y>
+      <x>1350</x>
+      <y>90</y>
       <width>71</width>
       <height>58</height>
      </rect>
