@@ -11,8 +11,12 @@ AddTeam::AddTeam(QWidget *parent) :
     QObject::connect(ui->NextButton,SIGNAL(clicked()),this,SLOT(NextSlot()));
     QObject::connect(ui->LastButton,SIGNAL(clicked()),this,SLOT(LastSlot()));
     QObject::connect(ui->SaveButton,SIGNAL(clicked()),this,SLOT(SaveSlot()));
-    ui->NumberBox->setValue(1);
-    ui->LastButton->setEnabled(false);
+
+    ui->TeamLine->setText(NowMatch.TeamName);
+    ui->TypeBox->setCurrentText(NowMatch.Type);
+    ui->NumberBox->setValue(NowMatch.Number);
+    if(NowMatch.Number<=1)
+        ui->LastButton->setEnabled(false);
 }
 
 AddTeam::~AddTeam()

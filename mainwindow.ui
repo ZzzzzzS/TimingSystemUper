@@ -38,6 +38,9 @@
     <property name="text">
      <string>准备!</string>
     </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -476,31 +479,101 @@
     <property name="title">
      <string>队伍</string>
     </property>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableWidget" name="tableWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
        <width>1131</width>
-       <height>91</height>
+       <height>601</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑 Light</family>
-       <pointsize>28</pointsize>
+       <pointsize>26</pointsize>
+       <weight>3</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
-    </widget>
-    <widget class="QListView" name="listView">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>1131</width>
-       <height>501</height>
-      </rect>
+     <property name="styleSheet">
+      <string notr="true">font: 25 26pt &quot;微软雅黑 Light&quot;;</string>
      </property>
+     <property name="rowCount">
+      <number>30</number>
+     </property>
+     <property name="columnCount">
+      <number>7</number>
+     </property>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>序号</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>    队名    </string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>组别</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>实际时间</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>出界次数</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>停车成功</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>最终成绩</string>
+      </property>
+     </column>
     </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">

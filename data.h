@@ -25,7 +25,6 @@ public:
 
 
 
-
     //sql测试部分
    QSqlDatabase db;
    void SQLOpen();

@@ -38,6 +38,7 @@ private slots:
     void NextTeam_Slot();                           //下一队
     void LatTeam_Slot();                            //上一队
     void AboutSlot();                               //关于槽
+    void TableLoad();                               //重新载入界面
 
 private:
     Ui::MainWindow *ui;
@@ -54,6 +55,7 @@ private:
     void ReadyToReady();                            //准备时间
     void FinshMatch();                              //完成比赛
     void TableInit();                               //初始化表格
+    void Reload(int n);                             //刷新界面
 
 };
 

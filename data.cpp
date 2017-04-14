@@ -20,10 +20,10 @@ void TeamInformation::save()
     Information.beginGroup(QString::number(this->Number));
     Information.setValue("TeamName",QVariant(this->TeamName));
     Information.setValue("MatchType",QVariant(this->Type));
-    Information.setValue("Time",QVariant(this->MatchTime.toString()));
+    Information.setValue("Time",QVariant(this->MatchTime.toString("mm:ss:zzz")));
     Information.setValue("Punishment",QVariant(this->Chujie));
     Information.setValue("StopCar",QVariant(this->StopCar));
-    Information.setValue("FinalTime",QVariant(this->FinalTime.toString()));
+    Information.setValue("FinalTime",QVariant(this->FinalTime.toString("mm:ss:zzz")));
     Information.setValue("HasMatched",QVariant(this->isMatched));
     Information.endGroup();
 }

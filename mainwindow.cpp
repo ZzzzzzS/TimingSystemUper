@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
         NewTeam.exec();
     }
     ReadyToReady();
+    TableLoad();
     ui->ConfirmButton->setEnabled(false);
     ui->ChuJieButton->setEnabled(false);
     ui->StopFailButton->setEnabled(false);
@@ -60,6 +61,8 @@ void MainWindow::Push_Slot()
     this->FinshMatch();//完成比赛
     confirmWindow window;
     window.exec();
+    Reload(NowMatch.Number);
+    this->ReadyToReady();
 }
 
 void MainWindow::AddTeam_Slot()
@@ -68,23 +71,16 @@ void MainWindow::AddTeam_Slot()
     NewTeam.exec();
     bool ok=true;
     NowMatch.load(ui->NumberLine->text().toInt(&ok,10));
+    this->TableLoad();
     ReadyToReady();
 }
 
 void MainWindow::TableInit()
 {
-    this->Model->setColumnCount(7);
-    this->Model->setHeaderData(0,Qt::Horizontal,QVariant("序号"));
-    this->Model->setHeaderData(1,Qt::Horizontal,QVariant("队名"));
-    this->Model->setHeaderData(2,Qt::Horizontal,QVariant("组别"));
-    this->Model->setHeaderData(3,Qt::Horizontal,QVariant("实际时间"));
-    this->Model->setHeaderData(4,Qt::Horizontal,QVariant("出界次数"));
-    this->Model->setHeaderData(5,Qt::Horizontal,QVariant("停车成功"));
-    this->Model->setHeaderData(6,Qt::Horizontal,QVariant("最终成绩"));
-    ui->tableView->setModel(this->Model);
-    ui->tableView->resizeColumnsToContents();//自动调节列
-    ui->tableView->resizeRowsToContents();//自动调节行
-    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableWidget->resizeRowsToContents();//自动调节列
+    ui->tableWidget->resizeColumnsToContents();//自动调节行
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void MainWindow::LatTeam_Slot()
@@ -114,4 +110,59 @@ void MainWindow::AboutSlot()
 {
     AboutWindow About;
     About.exec();
+}
+
+void MainWindow::TableLoad()
+{
+    int store=NowMatch.Number;//先记录当前组的序号
+
+    int i=1;
+    while(true)
+    {
+        NowMatch.load(i);
+       if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
+        {
+            break;
+        }
+        ui->tableWidget->setItem(i-1,0,new QTableWidgetItem(QString::number(NowMatch.Number)));
+        ui->tableWidget->setItem(i-1,1,new QTableWidgetItem(NowMatch.TeamName));
+        ui->tableWidget->setItem(i-1,2,new QTableWidgetItem(NowMatch.Type));
+        ui->tableWidget->setItem(i-1,3,new QTableWidgetItem(NowMatch.MatchTime.toString("mm:ss:zzz")));
+        ui->tableWidget->setItem(i-1,4,new QTableWidgetItem(QString::number(NowMatch.Chujie)));
+        ui->tableWidget->setItem(i-1,6,new QTableWidgetItem(NowMatch.FinalTime.toString("mm:ss:zzz")));
+        if(NowMatch.StopCar==true)
+        {
+            ui->tableWidget->setItem(i-1,5,new QTableWidgetItem("是"));
+        }
+        else
+        {
+            ui->tableWidget->setItem(i-1,5,new QTableWidgetItem("否"));
+        }
+
+        i++;
+    }
+    NowMatch.load(store);
+}
+
+void MainWindow::Reload(int n)
+{
+    int store=NowMatch.Number;
+    NowMatch.load(n);
+
+    ui->tableWidget->setItem(n-1,0,new QTableWidgetItem(QString::number(NowMatch.Number)));
+    ui->tableWidget->setItem(n-1,1,new QTableWidgetItem(NowMatch.TeamName));
+    ui->tableWidget->setItem(n-1,2,new QTableWidgetItem(NowMatch.Type));
+    ui->tableWidget->setItem(n-1,3,new QTableWidgetItem(NowMatch.MatchTime.toString("mm:ss:zzz")));
+    ui->tableWidget->setItem(n-1,4,new QTableWidgetItem(QString::number(NowMatch.Chujie)));
+    ui->tableWidget->setItem(n-1,6,new QTableWidgetItem(NowMatch.MatchTime.toString("mm:ss:zzz")));
+    if(NowMatch.StopCar==true)
+    {
+        ui->tableWidget->setItem(n-1,5,new QTableWidgetItem("是"));
+    }
+    else
+    {
+        ui->tableWidget->setItem(n-1,5,new QTableWidgetItem("否"));
+    }
+
+    NowMatch.load(store);
 }
