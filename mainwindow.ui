@@ -317,7 +317,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>141</y>
+        <y>140</y>
         <width>221</width>
         <height>82</height>
        </rect>
@@ -370,7 +370,7 @@
        <rect>
         <x>150</x>
         <y>30</y>
-        <width>81</width>
+        <width>71</width>
         <height>81</height>
        </rect>
       </property>
@@ -389,6 +389,9 @@
            </property>
            <property name="text">
             <string>0</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -420,7 +423,10 @@
           </font>
          </property>
          <property name="text">
-          <string>失败</string>
+          <string>成功</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -660,6 +666,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
@@ -743,6 +752,9 @@
       <pointsize>36</pointsize>
      </font>
     </property>
+    <property name="duplicatesEnabled">
+     <bool>false</bool>
+    </property>
     <item>
      <property name="text">
       <string>光电四轮组</string>
@@ -814,6 +826,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

@@ -39,6 +39,10 @@ private slots:
     void LatTeam_Slot();                            //上一队
     void AboutSlot();                               //关于槽
     void TableLoad();                               //重新载入界面
+    void PauseSlot();                               //暂停功能
+    void ResetSlot();                               //复位槽
+    void PaiXuSlot(int n);                          //排序槽
+    void WuxiaoSlot();                              //修改无效槽
 
 private:
     Ui::MainWindow *ui;
@@ -56,6 +60,7 @@ private:
     void FinshMatch();                              //完成比赛
     void TableInit();                               //初始化表格
     void Reload(int n);                             //刷新界面
+
 
 };
 

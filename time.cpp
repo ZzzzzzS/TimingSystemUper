@@ -14,7 +14,9 @@ void MainWindow::Start_Slot()
         ui->TimeLine->setText("00:01:00");//先刷一次图
 
         this->ReadyToReady();//准备时间
-
+        ui->AddButton->setEnabled(false);
+        ui->NextTeamButton->setEnabled(false);
+        ui->LastTeamButton->setEnabled(false);
         ui->StartButton->setText(tr("就绪!"));
     }
     else if(ui->StartButton->text()=="就绪!"||ui->StartButton->text()=="重跑!")
@@ -54,6 +56,7 @@ void MainWindow::Start_Slot()
         ui->StartButton->setText("重跑!");
         ui->StartButton->setEnabled(false);//放误触发
         ui->ConfirmButton->setEnabled(true);
+        ui->AddButton->setEnabled(true);
 
         this->ReNew->start(2000);
         QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(AntiTouch_Slot()));
@@ -65,6 +68,9 @@ void MainWindow::Time_Out()
 {
     if(ui->StartButton->text()=="就绪!")
     {
+        if(ui->PauseButton->text()=="继续")
+            return;//暂停功能
+
         this->Time=this->Time.addMSecs(-10);
         if(this->Time<=QTime(0,0,0,0))
         {
@@ -82,6 +88,9 @@ void MainWindow::Time_Out()
     }
     else if(ui->StartButton->text()=="发车!")
     {
+        if(ui->PauseButton->text()=="继续")
+            return;//暂停功能
+
         this->Time=this->Time.addMSecs(-10);
         if(this->Time<=QTime(0,0,0,0))
         {
@@ -102,6 +111,9 @@ void MainWindow::Time_Out()
     }
     else if(ui->StartButton->text()=="完成!")
     {
+        if(ui->PauseButton->text()=="继续")
+            return;//暂停功能
+
         this->Time=this->Time.addMSecs(10);
         ui->TimeLine->setText(this->Time.toString("mm:ss:"));
         ui->TimeLine_MS->setText(this->Time.toString("zzz"));

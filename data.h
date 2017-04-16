@@ -23,11 +23,9 @@ public:
     void save();//储存当前选手信息
 
 
-
-
     //sql测试部分
-   QSqlDatabase db;
-   void SQLOpen();
+    QSqlDatabase db;
+    void SQLOpen();
 
 
 

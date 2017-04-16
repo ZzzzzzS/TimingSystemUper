@@ -4,9 +4,9 @@
 TeamInformation::TeamInformation()//初始化清零
 {
     this->Chujie=0;
-    this->FinalTime=QTime(0,0,0,0);
+    this->FinalTime=QTime(23,59,59,999);
     this->isMatched=false;
-    this->MatchTime=QTime(0,0,0,0);
+    this->MatchTime=QTime(23,59,59,999);
     this->Number=0;
     this->StopCar=true;//默认停车成功
     this->TeamName="NoName";
@@ -46,7 +46,14 @@ void TeamInformation::load(int Number)
 
 void TeamInformation::reset()
 {
-    TeamInformation();
+    this->Chujie=0;
+    this->FinalTime=QTime(23,59,59,999);
+    this->isMatched=false;
+    this->MatchTime=QTime(23,59,59,999);
+    this->Number=0;
+    this->StopCar=true;//默认停车成功
+    this->TeamName="NoName";
+    this->Type="NoType";
 }
 
 TeamInformation NowMatch;//声明一个类储存当前选手信息

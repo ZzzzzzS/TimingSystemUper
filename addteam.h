@@ -19,9 +19,14 @@ private slots:
     void NextSlot();
     void LastSlot();
     void SaveSlot();
+    void deleteSlot();
 
 private:
     Ui::AddTeam *ui;
 };
 
+
+#if _MSC_VER >= 1600                                //防止中文乱码
+#pragma execution_character_set("utf-8")
+#endif
 #endif // ADDTEAM_H
