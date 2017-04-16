@@ -8,6 +8,8 @@ void MainWindow::ReadyToRun()
     PunishTimes=0;
     ui->ChujieLine->setText(QString::number(this->PunishTimes));
     ui->ConfirmButton->setEnabled(false);
+    NowMatch.isMatched=false;
+    ui->AddButton->setEnabled(false);
 }
 
 void MainWindow::FinshMatch()
@@ -24,10 +26,15 @@ void MainWindow::FinshMatch()
     NowMatch.FinalTime=NowMatch.FinalTime.addSecs(NowMatch.Chujie);
     if(NowMatch.StopCar==false)
         NowMatch.FinalTime=NowMatch.FinalTime.addSecs(1);
+
+    NowMatch.isMatched=true;
+    ui->NextTeamButton->setEnabled(true);
+    ui->LastTeamButton->setEnabled(true);
 }
 
 void MainWindow::ReadyToReady()
 {
+
     ui->ChuJieButton->setEnabled(false);
     ui->StopFailButton->setEnabled(false);
     PunishTimes=0;
@@ -42,9 +49,15 @@ void MainWindow::ReadyToReady()
 void MainWindow::StopFail_Slot()
 {
     if(ui->StopFailButton->text()=="停车失败")
+    {
         ui->StopFailButton->setText("停车成功");
+        ui->StopLine->setText("失败");
+    }
     else if(ui->StopFailButton->text()=="停车成功")
+    {
         ui->StopFailButton->setText("停车失败");
+        ui->StopLine->setText("成功");
+    }
 }
 
 void MainWindow::Punish_Slot()

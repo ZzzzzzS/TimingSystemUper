@@ -54,6 +54,10 @@ void MainWindow::connect_init()
     QObject::connect(ui->LastTeamButton,SIGNAL(clicked(bool)),this,SLOT(LatTeam_Slot()));
     QObject::connect(ui->NextTeamButton,SIGNAL(clicked(bool)),this,SLOT(NextTeam_Slot()));
     QObject::connect(ui->AboutButton,SIGNAL(clicked(bool)),this,SLOT(AboutSlot()));
+    QObject::connect(ui->PauseButton,SIGNAL(clicked(bool)),this,SLOT(PauseSlot()));
+    QObject::connect(ui->ResetButton,SIGNAL(clicked(bool)),this,SLOT(ResetSlot()));
+    QObject::connect(ui->tableWidget->horizontalHeader(),SIGNAL(sectionClicked(int)),this,SLOT(PaiXuSlot(int)));
+    QObject::connect(ui->TypeBox,SIGNAL(currentTextChanged(QString)),this,SLOT(WuxiaoSlot()));
 }
 
 void MainWindow::Push_Slot()
@@ -62,7 +66,16 @@ void MainWindow::Push_Slot()
     confirmWindow window;
     window.exec();
     Reload(NowMatch.Number);
+    NowMatch.load(NowMatch.Number+1);
+    if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
+    {
+        QMessageBox::information(this,"已经到最后一组了","然而并没有更多的组 ㄟ( ▔, ▔ )ㄏ",QMessageBox::Ok);
+        NowMatch.load(NowMatch.Number-1);
+
+    }
+    ui->StartButton->setText("准备!");
     this->ReadyToReady();
+    PaiXuSlot(6);
 }
 
 void MainWindow::AddTeam_Slot()
@@ -101,7 +114,7 @@ void MainWindow::NextTeam_Slot()
     {
         //可能存在bug
         NowMatch.load(NowMatch.Number-1);
-        QMessageBox::information(this,"718 lab","然而并没有更多队伍 (￣_￣|||)",QMessageBox::Ok);
+        QMessageBox::information(this,"需要更多的队伍","然而并没有更多队伍 (￣_￣|||)",QMessageBox::Ok);
     }
     this->ReadyToReady();
 }
@@ -165,4 +178,37 @@ void MainWindow::Reload(int n)
     }
 
     NowMatch.load(store);
+}
+
+void MainWindow::PauseSlot()
+{
+    if(ui->PauseButton->text()=="暂停")
+        ui->PauseButton->setText("继续");
+    else if(ui->PauseButton->text()=="继续")
+        ui->PauseButton->setText("暂停");
+}
+
+void MainWindow::ResetSlot()
+{
+    if(QMessageBox::question(this,"复位","如果复位将丢失当前组成绩，要复位吗?",QMessageBox::Yes,QMessageBox::No)==QMessageBox::No)
+        return;
+
+    QObject::disconnect(this->ReNew,SIGNAL(timeout()),this,SLOT(Time_Out()));
+    ui->StartButton->setText("准备!");
+    ui->TimeLine->setText("01:00:");//先刷一次图
+    ui->TimeLine_MS->setText("000");
+}
+
+void MainWindow::PaiXuSlot(int n)
+{
+    ui->tableWidget->sortItems(n,Qt::AscendingOrder);//排序
+}
+
+void MainWindow::WuxiaoSlot()
+{
+    if(ui->TypeBox->currentText()==NowMatch.Type)
+        return;
+
+    QMessageBox::information(this,"不能在这里修改","注意，在此处的修改无效，\n修改请在添加/修改比赛处修改",QMessageBox::Ok);
+    ui->TypeBox->setCurrentText(NowMatch.Type);
 }
