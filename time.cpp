@@ -5,6 +5,13 @@ void MainWindow::Start_Slot()
 {
     if(ui->StartButton->text()=="准备!")
     {
+        if(ui->ChuanKouButton->text()=="打开串口")
+        {
+            if(QMessageBox::No==QMessageBox::question(this,"串口可能未打开","串口未打开，您确定不需要打开吗",QMessageBox::Yes,QMessageBox::No))
+                return;
+        }
+
+
         this->ReNew->start(10);//1000毫秒刷新一次界面
 
         QObject::disconnect(this->ReNew,SIGNAL(timeout()),this,SLOT(Time_Out()));//先断开连接防止错误
