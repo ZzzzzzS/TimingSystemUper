@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     TableInit();
     connect_init();//初始化连接
     Port_Scan();//端口扫描
@@ -32,8 +33,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->PunishTimes=0;
     ui->ChujieLine->setText("0");
 
-    this->setMaximumSize(1440,810);
-    this->setMinimumSize(1440,810);
+    //this->setMaximumSize(1440,810);
+   // this->setMinimumSize(1440,810);
 }
 
 MainWindow::~MainWindow()
