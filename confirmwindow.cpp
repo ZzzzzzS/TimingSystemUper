@@ -20,8 +20,8 @@ confirmWindow::confirmWindow(QWidget *parent) :
     ReNew->start(100);//100ms刷新一次
     QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(Reload()));
 
-    this->setMaximumSize(324,576);
-    this->setMinimumSize(324,576);
+    //this->setMaximumSize(324,576);
+    //this->setMinimumSize(324,576);
 
 }
 

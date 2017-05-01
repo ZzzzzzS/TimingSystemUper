@@ -34,15 +34,18 @@ SOURCES += main.cpp\
     data.cpp \
     addteam.cpp \
     sql.cpp \
-    aboutwindow.cpp
+    aboutwindow.cpp \
+    addteam_new.cpp
 
 HEADERS  += mainwindow.h \
     confirmwindow.h \
     data.h \
     addteam.h \
-    aboutwindow.h
+    aboutwindow.h \
+    addteam_new.h
 
 FORMS    += mainwindow.ui \
     confirmwindow.ui \
     addteam.ui \
-    aboutwindow.ui
+    aboutwindow.ui \
+    addteam_new.ui

@@ -6,7 +6,8 @@
 #include "ui_addteam.h"
 #include "aboutwindow.h"
 #include "ui_aboutwindow.h"
-
+#include "addteam_new.h"
+#include "ui_addteam_new.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
     {
         QMessageBox::information(this,"请添加队伍信息","你可能用了假的数据库 ⊙﹏⊙∥",QMessageBox::Ok);
-        AddTeam NewTeam;
+        addteam_new NewTeam;
         NewTeam.exec();
     }
     ReadyToReady();
@@ -81,7 +82,7 @@ void MainWindow::Push_Slot()
 
 void MainWindow::AddTeam_Slot()
 {
-    AddTeam NewTeam;
+    addteam_new NewTeam;
     NewTeam.exec();
     bool ok=true;
     NowMatch.load(ui->NumberLine->text().toInt(&ok,10));

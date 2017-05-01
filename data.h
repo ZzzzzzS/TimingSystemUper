@@ -21,7 +21,7 @@ public:
     void reset();//清零
     void load(int Number);//从磁盘装载第几号选手信息
     void save();//储存当前选手信息
-
+    void reset_Number();
 
     //sql测试部分
     QSqlDatabase db;
