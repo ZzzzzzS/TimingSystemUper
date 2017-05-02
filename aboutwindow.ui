@@ -37,6 +37,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="QtButton">
+      <property name="text">
+       <string>关于Qt</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="pushButton_2">
       <property name="text">
        <string>确定</string>
@@ -56,6 +63,12 @@
      <width>231</width>
      <height>91</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>

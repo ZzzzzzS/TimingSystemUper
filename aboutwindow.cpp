@@ -22,6 +22,7 @@ AboutWindow::AboutWindow(QWidget *parent) :
 
     QObject::connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(close()));
     QObject::connect(ui->pushButton,SIGNAL(clicked(bool)),this,SLOT(webslot()));
+    QObject::connect(ui->QtButton,SIGNAL(clicked(bool)),qApp,SLOT(aboutQt()));
 }
 
 AboutWindow::~AboutWindow()
