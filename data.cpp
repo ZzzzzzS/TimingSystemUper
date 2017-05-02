@@ -9,8 +9,8 @@ TeamInformation::TeamInformation()//初始化清零
     this->MatchTime=QTime(23,59,59,999);
     this->Number=0;
     this->StopCar=true;//默认停车成功
-    this->TeamName="NoName";
-    this->Type="NoType";
+    this->TeamName="";
+    this->Type="";
 }
 
 void TeamInformation::save()
@@ -63,7 +63,7 @@ void TeamInformation::reset_Number()
     this->isMatched=false;
     this->MatchTime=QTime(23,59,59,999);
     this->StopCar=true;//默认停车成功
-    this->TeamName="NoName";
+    this->TeamName="";
     this->Type="光电四轮组";
 }
 

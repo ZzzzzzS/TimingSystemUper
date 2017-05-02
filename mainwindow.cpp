@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StopFailButton->setEnabled(false);
     this->PunishTimes=0;
     ui->ChujieLine->setText("0");
-
+    ui->NumBox->setValue(1);
     //this->setMaximumSize(1440,810);
    // this->setMinimumSize(1440,810);
 }
@@ -50,7 +50,6 @@ void MainWindow::connect_init()
     QObject::connect(ui->StartButton,SIGNAL(clicked()),this,SLOT(Start_Slot()));//开始按钮的槽
     QObject::connect(ui->ChuJieButton,SIGNAL(clicked()),this,SLOT(Punish_Slot()));
     QObject::connect(ui->StopFailButton,SIGNAL(clicked()),this,SLOT(StopFail_Slot()));
-    QObject::connect(ui->AboutQtButton,SIGNAL(clicked()),qApp,SLOT(aboutQt()));
     QObject::connect(ui->ConfirmButton,SIGNAL(clicked()),this,SLOT(Push_Slot()));
     QObject::connect(ui->AddButton,SIGNAL(clicked(bool)),this,SLOT(AddTeam_Slot()));
     QObject::connect(ui->LastTeamButton,SIGNAL(clicked(bool)),this,SLOT(LatTeam_Slot()));
@@ -60,6 +59,7 @@ void MainWindow::connect_init()
     QObject::connect(ui->ResetButton,SIGNAL(clicked(bool)),this,SLOT(ResetSlot()));
     QObject::connect(ui->tableWidget->horizontalHeader(),SIGNAL(sectionClicked(int)),this,SLOT(PaiXuSlot(int)));
     QObject::connect(ui->TypeBox,SIGNAL(currentTextChanged(QString)),this,SLOT(WuxiaoSlot()));
+    QObject::connect(ui->GotoButton,SIGNAL(clicked(bool)),this,SLOT(GotoSlot()));
 }
 
 void MainWindow::Push_Slot()
@@ -94,7 +94,7 @@ void MainWindow::TableInit()
 {
     ui->tableWidget->resizeRowsToContents();//自动调节列
     ui->tableWidget->resizeColumnsToContents();//自动调节行
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
@@ -197,8 +197,15 @@ void MainWindow::ResetSlot()
 
     QObject::disconnect(this->ReNew,SIGNAL(timeout()),this,SLOT(Time_Out()));
     ui->StartButton->setText("准备!");
+    ui->StartButton->setEnabled(true);
     ui->TimeLine->setText("01:00:");//先刷一次图
     ui->TimeLine_MS->setText("000");
+    ui->NextTeamButton->setEnabled(true);
+    ui->LastTeamButton->setEnabled(true);
+    ui->AddButton->setEnabled(true);
+    ui->ChuJieButton->setEnabled(false);
+    ui->ConfirmButton->setEnabled(false);
+    ui->StopFailButton->setEnabled(false);
 }
 
 void MainWindow::PaiXuSlot(int n)
@@ -213,4 +220,22 @@ void MainWindow::WuxiaoSlot()
 
     QMessageBox::information(this,"不能在这里修改","注意，在此处的修改无效，\n修改请在添加/修改比赛处修改",QMessageBox::Ok);
     ui->TypeBox->setCurrentText(NowMatch.Type);
+}
+
+void MainWindow::GotoSlot()
+{
+    if(ui->NumBox->value()<1)
+    {
+        QMessageBox::information(this,"718 lab","输入值有误，请检查您的输入值",QMessageBox::Ok);
+        return;
+    }
+    int number=NowMatch.Number;
+    NowMatch.load(ui->NumBox->value());
+    if(NowMatch.TeamName.isEmpty()&&NowMatch.Type.isEmpty())
+    {
+        //可能存在bug
+        NowMatch.load(number);
+        QMessageBox::information(this,"718 lab","输入值有误，请检查您的输入值",QMessageBox::Ok);
+    }
+    this->ReadyToReady();
 }

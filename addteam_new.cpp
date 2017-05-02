@@ -10,6 +10,7 @@ addteam_new::addteam_new(QWidget *parent) :
     if(ui->NumberBox->value()<=2)
         ui->LastButton->setEnabled(false);
     this->ReNew->start(10);
+    this->InformationRenew();
     QObject::connect(ui->QuestionButton,SIGNAL(clicked(bool)),this,SLOT(QuestionSlot()));
     QObject::connect(ui->SaveButton,SIGNAL(clicked(bool)),this,SLOT(SaveSlot()));
     QObject::connect(ui->NextButton,SIGNAL(clicked(bool)),this,SLOT(NextSlot()));
@@ -70,6 +71,7 @@ void addteam_new::GoToSlot()
     if(ui->NumberBox->value()<1)
     {
         QMessageBox::information(this,"718 lab","输入值有误，请检查您的输入值",QMessageBox::Ok);
+        return;
     }
     if(ui->NumberBox->value()<=2)
         ui->LastButton->setEnabled(false);
@@ -109,6 +111,10 @@ void addteam_new::SaveSlot()
 {
     this->InformationSave();
     QMessageBox::information(this,"718 lab","信息更新成功",QMessageBox::Ok);
+    if(ui->AutoBox->isChecked())
+    {
+        this->close();
+    }
 }
 
 void addteam_new::ResetSlot()

@@ -43,7 +43,7 @@ private slots:
     void ResetSlot();                               //复位槽
     void PaiXuSlot(int n);                          //排序槽
     void WuxiaoSlot();                              //修改无效槽
-
+    void GotoSlot();                                //跳转槽
 private:
     Ui::MainWindow *ui;
 
