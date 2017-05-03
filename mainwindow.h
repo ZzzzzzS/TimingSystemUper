@@ -24,10 +24,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    QSerialPort Port;                               //串口对象
+public slots:
+    void Port_Init();                               //打开串口时初始化
 private slots:
     void Receive_Slot();                            //接收串口信息
-    void Port_Init();                               //打开串口时初始化
     void Start_Slot();                              //开始比赛的槽
     void Time_Out();                                //定时刷新
     void Punish_Slot();                             //罚时按钮槽
@@ -47,7 +48,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QSerialPort Port;                               //串口对象
+
     QTime Time;                                     //主要计时器
     QTimer *ReNew=new QTimer(this);                 //定时刷新计时器
     QStandardItemModel *Model=new QStandardItemModel;
@@ -60,7 +61,6 @@ private:
     void FinshMatch();                              //完成比赛
     void TableInit();                               //初始化表格
     void Reload(int n);                             //刷新界面
-
 
 };
 

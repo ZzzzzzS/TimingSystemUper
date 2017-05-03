@@ -6,6 +6,7 @@ confirmWindow::confirmWindow(QWidget *parent) :
     ui(new Ui::confirmWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
     ui->TeamNameLine->setText(NowMatch.TeamName);
     ui->NumberLine->setText(QString::number(NowMatch.Number));
     ui->TimeLine->setText(NowMatch.MatchTime.toString("mm:ss:zzz"));
@@ -20,8 +21,7 @@ confirmWindow::confirmWindow(QWidget *parent) :
     ReNew->start(100);//100ms刷新一次
     QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(Reload()));
 
-    //this->setMaximumSize(324,576);
-    //this->setMinimumSize(324,576);
+    this->setWindowTitle("718 lab");
 
 }
 

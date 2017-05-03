@@ -34,8 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->PunishTimes=0;
     ui->ChujieLine->setText("0");
     ui->NumBox->setValue(1);
-    //this->setMaximumSize(1440,810);
-   // this->setMinimumSize(1440,810);
+    this->setWindowTitle("光电计时系统——718创新实验室");
 }
 
 MainWindow::~MainWindow()

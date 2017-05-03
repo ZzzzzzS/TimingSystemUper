@@ -105,8 +105,7 @@ void MainWindow::Port_Init()
             ui->ChuanKouButton->setText(tr("关闭串口"));               //设置开关键
             ui->ChuanKouButton->setEnabled(true);
 
-            QObject::connect(&Port, &QSerialPort::readyRead, this, &MainWindow::Receive_Slot);
-
+            QObject::connect(&this->Port,SIGNAL(readyRead()),this,SLOT(Receive_Slot()));
             if(!Port.isOpen()&&ui->ChuanKouButton->text()=="关闭串口")
             {
                 QMessageBox::information(this,"您可能使用了假串口","设备可能未连接或被其他程序占用",QMessageBox::Ok);

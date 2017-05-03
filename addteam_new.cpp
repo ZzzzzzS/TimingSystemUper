@@ -18,6 +18,8 @@ addteam_new::addteam_new(QWidget *parent) :
     QObject::connect(ui->ResetButton,SIGNAL(clicked(bool)),this,SLOT(ResetSlot()));
     QObject::connect(ui->ToButton,SIGNAL(clicked(bool)),this,SLOT(GoToSlot()));
     QObject::connect(this->ReNew,SIGNAL(timeout()),this,SLOT(TimeSlot()));
+    this->setWindowTitle("718 lab");
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
 }
 
 addteam_new::~addteam_new()

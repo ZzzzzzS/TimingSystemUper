@@ -15,7 +15,6 @@ AddTeam::AddTeam(QWidget *parent) :
     QObject::connect(ui->SaveButton,SIGNAL(clicked()),this,SLOT(SaveSlot()));
     QObject::connect(ui->DeleteButton,SIGNAL(clicked(bool)),this,SLOT(deleteSlot()));
 
-
     ui->TeamLine->setText(NowMatch.TeamName);
     ui->TypeBox->setCurrentText(NowMatch.Type);
     ui->NumberBox->setValue(NowMatch.Number);
