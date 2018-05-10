@@ -947,37 +947,22 @@
                </item>
                <item>
                 <property name="text">
-                 <string>光电直立组</string>
+                 <string>两轮直立组</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>电磁普通组</string>
+                 <string>电磁三轮组</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>电磁节能组</string>
+                 <string>双车会车组</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>光电追逐组</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>电磁追逐组</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>双车对抗组</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>四旋翼导航组</string>
+                 <string>无线节能组</string>
                 </property>
                </item>
               </widget>

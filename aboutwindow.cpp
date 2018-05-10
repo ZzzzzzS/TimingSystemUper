@@ -33,5 +33,5 @@ AboutWindow::~AboutWindow()
 
 void AboutWindow::webslot()
 {
-    QDesktopServices::openUrl(QUrl(QLatin1String("https://git.oschina.net/code.zzs/opto-electronic_timing_system")));
+    QDesktopServices::openUrl(QUrl(QLatin1String("https://blog.zzshub.cn/")));
 }

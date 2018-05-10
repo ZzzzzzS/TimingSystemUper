@@ -210,6 +210,7 @@ void MainWindow::ResetSlot()
 void MainWindow::PaiXuSlot(int n)
 {
     ui->tableWidget->sortItems(n,Qt::AscendingOrder);//排序
+    ui->tableWidget->sortItems(n,Qt::AscendingOrder);//我也不知道为什么,反正就是需要排序两次,不然有bug
 }
 
 void MainWindow::WuxiaoSlot()
